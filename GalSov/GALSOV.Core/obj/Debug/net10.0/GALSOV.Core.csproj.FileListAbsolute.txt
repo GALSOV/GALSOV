@@ -1,0 +1,11 @@
+D:\GALSOV\GalSov\GALSOV.Core\bin\Debug\net10.0\GALSOV.Core.deps.json
+D:\GALSOV\GalSov\GALSOV.Core\bin\Debug\net10.0\GALSOV.Core.dll
+D:\GALSOV\GalSov\GALSOV.Core\bin\Debug\net10.0\GALSOV.Core.pdb
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.AssemblyInfoInputs.cache
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.AssemblyInfo.cs
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.csproj.CoreCompileInputs.cache
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.dll
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\refint\GALSOV.Core.dll
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\GALSOV.Core.pdb
+D:\GALSOV\GalSov\GALSOV.Core\obj\Debug\net10.0\ref\GALSOV.Core.dll
