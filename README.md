@@ -1,5 +1,5 @@
 # GALSOV — Galactic Sovereignty
-
+https://github.com/galsov/galsov/blob/main/teaserbanner.png
 ## Overview
 GALSOV is a single-player, grand-scale 4X strategy game built in **C#/.NET 8** with a **WPF UI**.  
 It focuses on deterministic simulation, long campaigns, and moddable JSON-driven content.
