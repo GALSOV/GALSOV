@@ -2,6 +2,9 @@
 ![Teaser Banner](https://raw.githubusercontent.com/GALSOV/GALSOV/main/teaserbanner.png)
 ## Overview
 GALSOV is a single-player, grand-scale 4X strategy game built in **C#/.NET 8** with a **WPF UI**.  
+Using entirely AI guidance to create the project (Using a mix of Copilot, ChatGPT and Firefly),
+I have extremely limited coding skills, and this is a combination of a boredom project and a learning
+exercise as well as a curiosity driven project to test AI capabilities.
 It focuses on deterministic simulation, long campaigns, and moddable JSON-driven content.
 
 ### Key Features
