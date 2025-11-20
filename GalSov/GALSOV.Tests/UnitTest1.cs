@@ -1,4 +1,4 @@
-﻿namespace GALSOV.Tests
+﻿namespace Galsov.Tests
 {
     public class UnitTest1
     {

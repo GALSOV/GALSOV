@@ -919,11 +919,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\GALSOV.Tests.csproj",
-      "projectName": "GALSOV.Tests",
-      "projectPath": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\GALSOV.Tests.csproj",
+      "projectUniqueName": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
+      "projectName": "Galsov.Tests",
+      "projectPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
       "packagesPath": "C:\\Users\\TimboSlice\\.nuget\\packages\\",
-      "outputPath": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\obj\\",
+      "outputPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TimboSlice\\AppData\\Roaming\\NuGet\\NuGet.Config",

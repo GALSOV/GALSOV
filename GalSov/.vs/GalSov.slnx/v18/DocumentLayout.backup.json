@@ -1,26 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GALSOV\\GalSov\\",
+  "WorkspaceRootPath": "D:\\GALSOV\\Galsov\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FC6DB10-7FE1-4BB9-BD79-EF0443F22222}|GALSOV.Tests\\GALSOV.Tests.csproj|d:\\galsov\\galsov\\galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FC6DB10-7FE1-4BB9-BD79-EF0443F22222}|GALSOV.Tests\\GALSOV.Tests.csproj|solutionrelative:galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D561B5-EA65-4DE1-9BA5-5FC3C533D75D}|Galsov.Tests\\Galsov.Tests.csproj|d:\\galsov\\galsov\\galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D561B5-EA65-4DE1-9BA5-5FC3C533D75D}|Galsov.Tests\\Galsov.Tests.csproj|solutionrelative:galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89DC5F6A-D21A-4805-989E-A84B8923DD85}|GALSOV.TurnRunner\\GALSOV.TurnRunner.csproj|d:\\galsov\\galsov\\galsov.turnrunner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89DC5F6A-D21A-4805-989E-A84B8923DD85}|GALSOV.TurnRunner\\GALSOV.TurnRunner.csproj|solutionrelative:galsov.turnrunner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|d:\\galsov\\galsov\\galsov.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|solutionrelative:galsov.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB56A64B-B997-4811-9249-68B440EB200B}|GALSOV.UI.Desktop\\GALSOV.UI.Desktop.csproj|d:\\galsov\\galsov\\galsov.ui.desktop\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FB56A64B-B997-4811-9249-68B440EB200B}|GALSOV.UI.Desktop\\GALSOV.UI.Desktop.csproj|solutionrelative:galsov.ui.desktop\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB56A64B-B997-4811-9249-68B440EB200B}|GALSOV.UI.Desktop\\GALSOV.UI.Desktop.csproj|d:\\galsov\\galsov\\galsov.ui.desktop\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB56A64B-B997-4811-9249-68B440EB200B}|GALSOV.UI.Desktop\\GALSOV.UI.Desktop.csproj|solutionrelative:galsov.ui.desktop\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72D73DB0-069F-48BF-987F-23CAFF68D060}|GALSOV.Core\\GALSOV.Core.csproj|d:\\galsov\\galsov\\galsov.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72D73DB0-069F-48BF-987F-23CAFF68D060}|GALSOV.Core\\GALSOV.Core.csproj|solutionrelative:galsov.core\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|d:\\galsov\\galsov\\galsov.ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|solutionrelative:galsov.ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,64 +28,38 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "GALSOV.Tests\\UnitTest1.cs",
-              "ToolTip": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\UnitTest1.cs",
-              "RelativeToolTip": "GALSOV.Tests\\UnitTest1.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "Galsov.Tests\\UnitTest1.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "Galsov.Tests\\UnitTest1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:13:41.534Z",
+              "WhenOpened": "2025-11-20T20:17:18.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\GALSOV\\GalSov\\GALSOV.TurnRunner\\Program.cs",
-              "RelativeDocumentMoniker": "GALSOV.TurnRunner\\Program.cs",
-              "ToolTip": "D:\\GALSOV\\GalSov\\GALSOV.TurnRunner\\Program.cs",
-              "RelativeToolTip": "GALSOV.TurnRunner\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:12:58.882Z",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Galsov.UI\\MainWindow.xaml",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml",
+              "RelativeToolTip": "Galsov.UI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-20T20:16:49.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\GALSOV\\GalSov\\GALSOV.UI.Desktop\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "GALSOV.UI.Desktop\\MainWindow.xaml",
-              "ToolTip": "D:\\GALSOV\\GalSov\\GALSOV.UI.Desktop\\MainWindow.xaml",
-              "RelativeToolTip": "GALSOV.UI.Desktop\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-18T19:11:19.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\GALSOV\\GalSov\\GALSOV.UI.Desktop\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "GALSOV.UI.Desktop\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\GALSOV\\GalSov\\GALSOV.UI.Desktop\\MainWindow.xaml.cs",
-              "RelativeToolTip": "GALSOV.UI.Desktop\\MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Galsov.UI\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Galsov.UI\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:11:18.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\GALSOV\\GalSov\\GALSOV.Core\\Class1.cs",
-              "RelativeDocumentMoniker": "GALSOV.Core\\Class1.cs",
-              "ToolTip": "D:\\GALSOV\\GalSov\\GALSOV.Core\\Class1.cs",
-              "RelativeToolTip": "GALSOV.Core\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T19:10:40.159Z",
+              "WhenOpened": "2025-11-20T20:16:49.282Z",
               "EditorCaption": ""
             }
           ]

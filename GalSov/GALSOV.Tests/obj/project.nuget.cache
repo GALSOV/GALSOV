@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ef4neLbqcWA=",
+  "dgSpecHash": "cTCpegmcXvk=",
   "success": true,
-  "projectFilePath": "D:\\GALSOV\\GalSov\\GALSOV.Tests\\GALSOV.Tests.csproj",
+  "projectFilePath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TimboSlice\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\TimboSlice\\.nuget\\packages\\microsoft.codecoverage\\17.14.1\\microsoft.codecoverage.17.14.1.nupkg.sha512",

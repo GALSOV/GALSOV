@@ -1,6 +1,7 @@
 <Solution>
-  <Project Path="GALSOV.Core/GALSOV.Core.csproj" />
-  <Project Path="GALSOV.Tests/GALSOV.Tests.csproj" />
-  <Project Path="GALSOV.TurnRunner/GALSOV.TurnRunner.csproj" />
-  <Project Path="GALSOV.UI.Desktop/GALSOV.UI.Desktop.csproj" />
+  <Project Path="Galsov.Core/Galsov.Core.csproj" />
+  <Project Path="Galsov.Data/Galsov.Data.csproj" />
+  <Project Path="Galsov.Infrastructure/Galsov.Infrastructure.csproj" />
+  <Project Path="Galsov.Tests/Galsov.Tests.csproj" />
+  <Project Path="Galsov.UI/Galsov.UI.csproj" />
 </Solution>

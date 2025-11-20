@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "GALSOV.Tests/1.0.0": {
+      "Galsov.Tests/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "17.14.1",
           "xunit": "2.9.3"
         },
         "runtime": {
-          "GALSOV.Tests.dll": {}
+          "Galsov.Tests.dll": {}
         }
       },
       "Microsoft.CodeCoverage/17.14.1": {
@@ -333,7 +333,7 @@
     }
   },
   "libraries": {
-    "GALSOV.Tests/1.0.0": {
+    "Galsov.Tests/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
