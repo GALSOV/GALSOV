@@ -7,6 +7,122 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <!-- Row 0: Error message bar -->
+            <RowDefinition Height="Auto" />
+            <!-- Row 1: Main content -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <!-- Error message at the top -->
+        <Border Grid.Row="0"
+                Background="#330000"
+                Padding="4"
+                Margin="4"
+                CornerRadius="2">
+            <TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="Red"
+                       FontWeight="Bold" />
+        </Border>
+
+        <!-- Main content: options on the left, canvas on the right -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <!-- Options panel -->
+                <ColumnDefinition Width="300" />
+                <!-- Galaxy canvas -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Options panel -->
+            <StackPanel Grid.Column="0"
+                        Margin="8"
+                        Orientation="Vertical">
+                <TextBlock Text="Debug Galaxy Generator"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="0,0,0,8" />
+
+                <!-- Seed -->
+                <TextBlock Text="Seed" />
+                <TextBox Text="{Binding Seed, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- Width -->
+                <TextBlock Text="Width" />
+                <TextBox Text="{Binding Width, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- Height -->
+                <TextBlock Text="Height" />
+                <TextBox Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- StarSystemCount -->
+                <TextBlock Text="Star System Count" />
+                <TextBox Text="{Binding StarSystemCount, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- DistributionPattern -->
+                <TextBlock Text="Distribution Pattern" />
+                <ComboBox Margin="0,0,0,8"
+          ItemsSource="{Binding DistributionPatterns}"
+          SelectedItem="{Binding DistributionPattern, Mode=TwoWay}">
+                </ComboBox>
+
+                <!-- EdgeMargin -->
+                <TextBlock Text="Edge Margin" />
+                <TextBox Text="{Binding EdgeMargin, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- MinSystemSpacing -->
+                <TextBlock Text="Min System Spacing" />
+                <TextBox Text="{Binding MinSystemSpacing, UpdateSourceTrigger=PropertyChanged}"
+                         Margin="0,0,0,8" />
+
+                <!-- Generate button -->
+                <Button Content="Generate"
+                        Command="{Binding GenerateCommand}"
+                        Margin="0,12,0,0"
+                        Height="32" />
+            </StackPanel>
+
+            <!-- Galaxy canvas -->
+            <Border Grid.Column="1"
+                    Margin="8"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Background="Black">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding StarSystems}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas x:Name="GalaxyCanvas"
+                                        MinWidth="800"
+                                        MinHeight="600" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <!-- Position each item based on X/Y on the Canvas -->
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="Canvas.Left" Value="{Binding X}" />
+                                <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+
+                        <!-- Visual for each star system -->
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Ellipse Width="4"
+                                         Height="4"
+                                         Fill="White" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

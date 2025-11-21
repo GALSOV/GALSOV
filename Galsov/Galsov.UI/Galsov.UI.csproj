@@ -9,4 +9,8 @@
 		<AssemblyName>Galsov.UI</AssemblyName>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Galsov.Core\Galsov.Core.csproj" />
+	</ItemGroup>
+
 </Project>
