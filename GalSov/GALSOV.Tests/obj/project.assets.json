@@ -393,6 +393,16 @@
         "build": {
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "Galsov.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Galsov.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Galsov.Core.dll": {}
+        }
       }
     }
   },
@@ -903,10 +913,16 @@
         "xunit.runner.visualstudio.3.1.4.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "Galsov.Core/1.0.0": {
+      "type": "project",
+      "path": "../Galsov.Core/Galsov.Core.csproj",
+      "msbuildProject": "../Galsov.Core/Galsov.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Galsov.Core >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.14.1",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
@@ -919,11 +935,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
+      "projectUniqueName": "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj",
       "projectName": "Galsov.Tests",
-      "projectPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
+      "projectPath": "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj",
       "packagesPath": "C:\\Users\\TimboSlice\\.nuget\\packages\\",
-      "outputPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\obj\\",
+      "outputPath": "D:\\GALSOV\\GalSov\\Galsov.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TimboSlice\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -939,7 +955,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\GALSOV\\GalSov\\Galsov.Core\\Galsov.Core.csproj": {
+              "projectPath": "D:\\GALSOV\\GalSov\\Galsov.Core\\Galsov.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
