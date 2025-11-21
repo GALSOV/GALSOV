@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj": {}
+    "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj": {}
   },
   "projects": {
-    "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj": {
+    "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
+        "projectUniqueName": "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj",
         "projectName": "Galsov.Tests",
-        "projectPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galsov.Tests.csproj",
+        "projectPath": "D:\\GALSOV\\GalSov\\Galsov.Tests\\Galsov.Tests.csproj",
         "packagesPath": "C:\\Users\\TimboSlice\\.nuget\\packages\\",
-        "outputPath": "D:\\GALSOV\\Galsov\\Galsov.Tests\\obj\\",
+        "outputPath": "D:\\GALSOV\\GalSov\\Galsov.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TimboSlice\\AppData\\Roaming\\NuGet\\NuGet.Config",

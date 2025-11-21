@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Galsov.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a48f00a4e53607e441b46b5266b9297a94290b1f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df1eeadd55eaed2284f31c9be06793a9c6d947e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Galsov.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Galsov.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
