@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Galsov.Core.Galaxy.Models;
 using Galsov.Core.Galaxy.Generation;
+using System.Linq;
 
 #nullable enable
 
@@ -20,6 +21,7 @@ namespace Galsov.UI.ViewModels
         private GalaxyDistributionPattern _distributionPattern = GalaxyDistributionPattern.Uniform;
         private int _edgeMargin = 0;
         private int _minSystemSpacing = 0;
+        private double _scale = 6.0;
 
         public DebugGalaxyViewModel()
         {
@@ -71,6 +73,19 @@ namespace Galsov.UI.ViewModels
             set => SetField(ref _minSystemSpacing, value);
         }
 
+        public double Scale
+        {
+            get => _scale;
+            set
+            {
+                if (SetField(ref _scale, value))
+                {
+                    RescaleStars();
+                }
+            }
+        }
+
+
         private string? _errorMessage;
 
         public string? ErrorMessage
@@ -112,6 +127,26 @@ namespace Galsov.UI.ViewModels
 
         // ---- generation logic (will fill next) ----
 
+        private void RescaleStars()
+        {
+            if (StarSystems.Count == 0)
+                return;
+
+            var existing = StarSystems.ToList();
+            StarSystems.Clear();
+
+            foreach (var s in existing)
+            {
+                StarSystems.Add(new StarSystemPointViewModel
+                {
+                    Id = s.Id,
+                    TileX = s.TileX,
+                    TileY = s.TileY,
+                    X = s.TileX * Scale,
+                    Y = s.TileY * Scale
+                });
+            }
+        }
         private void GenerateGalaxy()
         {
             // Clear any previous error
@@ -140,15 +175,16 @@ namespace Galsov.UI.ViewModels
                 // 4. Convert star systems to display points (pixels)
                 StarSystems.Clear();
 
-                // Basic scaling factor: how many pixels per "tile".
-                // We can tune this later or make it dynamic.
-                const double scale = 6.0;
+                // Use the current Scale value to determine pixels per tile.
+                var scale = Scale;
 
                 foreach (var system in galaxy.StarSystems)
                 {
                     StarSystems.Add(new StarSystemPointViewModel
                     {
                         Id = system.Id,
+                        TileX = system.X,
+                        TileY = system.Y,
                         X = system.X * scale,
                         Y = system.Y * scale
                     });
@@ -169,6 +205,10 @@ namespace Galsov.UI.ViewModels
     public sealed class StarSystemPointViewModel
     {
         public int Id { get; init; }
+
+        // Tile coordinates in the galaxy grid
+        public int TileX { get; init; }
+        public int TileY { get; init; }
 
         // Pixel positions on the canvas
         public double X { get; init; }

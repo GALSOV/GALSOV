@@ -66,8 +66,8 @@
                 <!-- DistributionPattern -->
                 <TextBlock Text="Distribution Pattern" />
                 <ComboBox Margin="0,0,0,8"
-          ItemsSource="{Binding DistributionPatterns}"
-          SelectedItem="{Binding DistributionPattern, Mode=TwoWay}">
+                    ItemsSource="{Binding DistributionPatterns}"
+                     SelectedItem="{Binding DistributionPattern, Mode=TwoWay}">
                 </ComboBox>
 
                 <!-- EdgeMargin -->
@@ -80,6 +80,17 @@
                 <TextBox Text="{Binding MinSystemSpacing, UpdateSourceTrigger=PropertyChanged}"
                          Margin="0,0,0,8" />
 
+                <!-- Scale / Zoom -->
+                <TextBlock Text="Scale (Zoom)" />
+                <Slider Minimum="1"
+                        Maximum="20"
+                        TickFrequency="1"
+                        IsSnapToTickEnabled="True"
+                        Value="{Binding Scale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="0,0,0,4" />
+                                <TextBlock Text="{Binding Scale, StringFormat=Scale: {0:F1}}"
+                           Margin="0,0,0,8" />
+
                 <!-- Generate button -->
                 <Button Content="Generate"
                         Command="{Binding GenerateCommand}"
@@ -89,39 +100,72 @@
 
             <!-- Galaxy canvas -->
             <Border Grid.Column="1"
-                    Margin="8"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Background="Black">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                              VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding StarSystems}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <Canvas x:Name="GalaxyCanvas"
-                                        MinWidth="800"
-                                        MinHeight="600" />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
+        Margin="8"
+        BorderBrush="Gray"
+        BorderThickness="1"
+        Background="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                        <!-- Position each item based on X/Y on the Canvas -->
-                        <ItemsControl.ItemContainerStyle>
-                            <Style TargetType="ContentPresenter">
-                                <Setter Property="Canvas.Left" Value="{Binding X}" />
-                                <Setter Property="Canvas.Top" Value="{Binding Y}" />
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
+                    <!-- Summary row -->
+                    <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="4">
+                        <TextBlock Text="Pattern: "
+                       Foreground="White" />
+                        <TextBlock Text="{Binding DistributionPattern}"
+                       Foreground="White"
+                       Margin="4,0,16,0" />
+                        <TextBlock Text="Stars: "
+                       Foreground="White" />
+                        <TextBlock Text="{Binding StarSystems.Count}"
+                       Foreground="White"
+                       Margin="4,0,0,0" />
+                    </StackPanel>
 
-                        <!-- Visual for each star system -->
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Ellipse Width="4"
-                                         Height="4"
-                                         Fill="White" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
+                    <!-- Scrollable canvas -->
+                    <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding StarSystems}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas x:Name="GalaxyCanvas"
+                                MinWidth="800"
+                                MinHeight="600" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <!-- Position each item based on X/Y on the Canvas -->
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="Canvas.Left" Value="{Binding X}" />
+                                    <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+
+                            <!-- Visual for each star system -->
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Ellipse Width="4"
+                                            Height="4"
+                                            Fill="White">
+                                        <Ellipse.ToolTip>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Id, StringFormat=ID: {0}}" />
+                                                <TextBlock Text="{Binding TileX, StringFormat=Tile X: {0}}" />
+                                                <TextBlock Text="{Binding TileY, StringFormat=Tile Y: {0}}" />
+                                            </StackPanel>
+                                        </Ellipse.ToolTip>
+                                    </Ellipse>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
             </Border>
         </Grid>
     </Grid>
