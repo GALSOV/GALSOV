@@ -3,16 +3,44 @@
   "WorkspaceRootPath": "D:\\GALSOV\\Galsov\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11D561B5-EA65-4DE1-9BA5-5FC3C533D75D}|Galsov.Tests\\Galsov.Tests.csproj|d:\\galsov\\galsov\\galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D561B5-EA65-4DE1-9BA5-5FC3C533D75D}|Galsov.Tests\\Galsov.Tests.csproj|solutionrelative:galsov.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{649297AA-7B92-F0BE-24A7-7BED72690B7E}|Galsov.Tests\\Galsov.Tests.csproj|d:\\galsov\\galsov\\galsov.tests\\galaxy\\galaxygeneratorsmoketests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{649297AA-7B92-F0BE-24A7-7BED72690B7E}|Galsov.Tests\\Galsov.Tests.csproj|solutionrelative:galsov.tests\\galaxy\\galaxygeneratorsmoketests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|d:\\galsov\\galsov\\galsov.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|solutionrelative:galsov.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\generation\\galaxygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\generation\\galaxygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|d:\\galsov\\galsov\\galsov.ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B202CC23-6F68-4F7D-86F8-BF1FFC1BFDA9}|Galsov.UI\\Galsov.UI.csproj|solutionrelative:galsov.ui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\models\\galaxygeneratoroptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\models\\galaxygeneratoroptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\models\\starsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\models\\starsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\common\\random\\xorshift64star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\common\\random\\xorshift64star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\interfaces\\igalaxygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\interfaces\\igalaxygenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\models\\planet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\models\\planet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\models\\planettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\models\\planettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\galaxy\\models\\galaxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\galaxy\\models\\galaxy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|d:\\galsov\\galsov\\galsov.core\\common\\interfaces\\igalaxyrng.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9C44B7C-A520-E630-8AAA-0B98C031E60E}|Galsov.Core\\Galsov.Core.csproj|solutionrelative:galsov.core\\common\\interfaces\\igalaxyrng.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,39 +55,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Tests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "Galsov.Tests\\UnitTest1.cs",
-              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Tests\\UnitTest1.cs",
-              "RelativeToolTip": "Galsov.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "GalaxyGeneratorSmokeTests.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galaxy\\GalaxyGeneratorSmokeTests.cs",
+              "RelativeDocumentMoniker": "Galsov.Tests\\Galaxy\\GalaxyGeneratorSmokeTests.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Tests\\Galaxy\\GalaxyGeneratorSmokeTests.cs",
+              "RelativeToolTip": "Galsov.Tests\\Galaxy\\GalaxyGeneratorSmokeTests.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAwwF0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T20:17:18.015Z",
+              "WhenOpened": "2025-11-21T10:45:53.446Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Galsov.UI\\MainWindow.xaml",
-              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml",
-              "RelativeToolTip": "Galsov.UI\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-20T20:16:49.434Z",
+              "Title": "GalaxyGenerator.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Generation\\GalaxyGenerator.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Generation\\GalaxyGenerator.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Generation\\GalaxyGenerator.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Generation\\GalaxyGenerator.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:44:51.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "XorShift64Star.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Common\\Random\\XorShift64Star.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Common\\Random\\XorShift64Star.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Common\\Random\\XorShift64Star.cs",
+              "RelativeToolTip": "Galsov.Core\\Common\\Random\\XorShift64Star.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:43:36.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Galsov.UI\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.UI\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Galsov.UI\\MainWindow.xaml.cs",
+              "Title": "GalaxyGeneratorOptions.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\GalaxyGeneratorOptions.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Models\\GalaxyGeneratorOptions.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\GalaxyGeneratorOptions.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Models\\GalaxyGeneratorOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:32:17.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Planet.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\Planet.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Models\\Planet.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\Planet.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Models\\Planet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:31:52.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PlanetType.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\PlanetType.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Models\\PlanetType.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\PlanetType.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Models\\PlanetType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:31:28.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StarSystem.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\StarSystem.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Models\\StarSystem.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\StarSystem.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Models\\StarSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:30:57.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Galaxy.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\Galaxy.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Models\\Galaxy.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Models\\Galaxy.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Models\\Galaxy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:30:32.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IGalaxyGenerator.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Interfaces\\IGalaxyGenerator.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Galaxy\\Interfaces\\IGalaxyGenerator.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Galaxy\\Interfaces\\IGalaxyGenerator.cs",
+              "RelativeToolTip": "Galsov.Core\\Galaxy\\Interfaces\\IGalaxyGenerator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T20:16:49.282Z",
+              "WhenOpened": "2025-11-21T10:29:35.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IGalaxyRng.cs",
+              "DocumentMoniker": "D:\\GALSOV\\Galsov\\Galsov.Core\\Common\\Interfaces\\IGalaxyRng.cs",
+              "RelativeDocumentMoniker": "Galsov.Core\\Common\\Interfaces\\IGalaxyRng.cs",
+              "ToolTip": "D:\\GALSOV\\Galsov\\Galsov.Core\\Common\\Interfaces\\IGalaxyRng.cs",
+              "RelativeToolTip": "Galsov.Core\\Common\\Interfaces\\IGalaxyRng.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T10:28:51.978Z",
               "EditorCaption": ""
             }
           ]

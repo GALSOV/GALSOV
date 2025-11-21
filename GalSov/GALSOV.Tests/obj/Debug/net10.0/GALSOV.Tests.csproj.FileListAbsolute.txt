@@ -95,3 +95,7 @@ D:\GALSOV\Galsov\Galsov.Tests\obj\Debug\net10.0\refint\Galsov.Tests.dll
 D:\GALSOV\Galsov\Galsov.Tests\obj\Debug\net10.0\Galsov.Tests.pdb
 D:\GALSOV\Galsov\Galsov.Tests\obj\Debug\net10.0\Galsov.Tests.genruntimeconfig.cache
 D:\GALSOV\Galsov\Galsov.Tests\obj\Debug\net10.0\ref\Galsov.Tests.dll
+D:\GALSOV\GalSov\Galsov.Tests\bin\Debug\net10.0\.msCoverageSourceRootsMapping_Galsov.Tests
+D:\GALSOV\GalSov\Galsov.Tests\bin\Debug\net10.0\CoverletSourceRootsMapping_Galsov.Tests
+D:\GALSOV\GalSov\Galsov.Tests\bin\Debug\net10.0\Galsov.Core.dll
+D:\GALSOV\GalSov\Galsov.Tests\bin\Debug\net10.0\Galsov.Core.pdb
