@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Galsov.Core.Galaxy.Models;
+using Galsov.Core.Galaxy.Models;   // StarSystem lives here
 using Galsov.Core.Galaxy.Generation;
 using System.Linq;
 
@@ -132,18 +132,27 @@ namespace Galsov.UI.ViewModels
             if (StarSystems.Count == 0)
                 return;
 
+            // Take a copy of the existing points
             var existing = StarSystems.ToList();
             StarSystems.Clear();
 
-            foreach (var s in existing)
+            var scale = Scale;
+
+            foreach (var system in existing)
             {
                 StarSystems.Add(new StarSystemPointViewModel
                 {
-                    Id = s.Id,
-                    TileX = s.TileX,
-                    TileY = s.TileY,
-                    X = s.TileX * Scale,
-                    Y = s.TileY * Scale
+                    Id = system.Id,
+                    TileX = system.TileX,
+                    TileY = system.TileY,
+
+                    // Recompute pixel positions from the tile coords + current scale
+                    X = system.TileX * scale,
+                    Y = system.TileY * scale,
+
+                    // Keep the same debug info
+                    StarClass = system.StarClass,
+                    PlanetCount = system.PlanetCount
                 });
             }
         }
@@ -186,7 +195,9 @@ namespace Galsov.UI.ViewModels
                         TileX = system.X,
                         TileY = system.Y,
                         X = system.X * scale,
-                        Y = system.Y * scale
+                        Y = system.Y * scale,
+                        StarClass = system.StarClass,
+                        PlanetCount = system.Planets?.Count ?? 0
                     });
                 }
             }
@@ -213,6 +224,10 @@ namespace Galsov.UI.ViewModels
         // Pixel positions on the canvas
         public double X { get; init; }
         public double Y { get; init; }
+
+        // New: star + planet info for debug/tooltip
+        public StarClass StarClass { get; init; }
+        public int PlanetCount { get; init; }
     }
 
     // Minimal ICommand implementation (standard MVVM pattern)

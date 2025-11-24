@@ -1,6 +1,6 @@
 ﻿// File: Galsov.Core/Galaxy/Models/StarSystem.cs
+using Galsov.Core.Galaxy.Models;
 using System.Collections.Generic;
-using System.Numerics;
 
 namespace Galsov.Core.Galaxy.Models
 {
@@ -29,6 +29,11 @@ namespace Galsov.Core.Galaxy.Models
         /// Y coordinate within the galaxy.
         /// </summary>
         public int Y { get; set; }
+
+        /// <summary>
+        /// Classification of the primary star in this system.
+        /// </summary>
+        public StarClass StarClass { get; set; } = StarClass.Unknown;
 
         /// <summary>
         /// Planets orbiting this star system.

@@ -32,5 +32,39 @@
         /// tiles, even diagonally.
         /// </summary>
         public int MinSystemSpacing { get; set; } = 0;
+
+        /// <summary>
+        /// Options for generating planets within each star system.
+        /// </summary>
+        public PlanetGenerationOptions PlanetGeneration { get; init; } = new();
+    }
+
+    public sealed class PlanetGenerationOptions
+    {
+        /// <summary>
+        /// Minimum number of planets allowed in a system.
+        /// </summary>
+        public int MinPlanetsPerSystem { get; init; } = 0;
+
+        /// <summary>
+        /// Maximum number of planets allowed in a system.
+        /// </summary>
+        public int MaxPlanetsPerSystem { get; init; } = 8;
+
+        /// <summary>
+        /// Probability that a system has no planets at all (0.0–1.0).
+        /// </summary>
+        public double EmptySystemProbability { get; init; } = 0.2;
+
+        /// <summary>
+        /// Probability weight for gas giants: higher = more giants
+        /// (relative to other types).
+        /// </summary>
+        public double GasGiantWeight { get; init; } = 1.5;
+
+        /// <summary>
+        /// Probability weight for habitable-type worlds (Earth-like, ocean, etc).
+        /// </summary>
+        public double HabitableWorldWeight { get; init; } = 0.5;
     }
 }

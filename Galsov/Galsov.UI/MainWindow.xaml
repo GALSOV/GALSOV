@@ -155,9 +155,11 @@
                                             Fill="White">
                                         <Ellipse.ToolTip>
                                             <StackPanel>
-                                                <TextBlock Text="{Binding Id, StringFormat=ID: {0}}" />
-                                                <TextBlock Text="{Binding TileX, StringFormat=Tile X: {0}}" />
-                                                <TextBlock Text="{Binding TileY, StringFormat=Tile Y: {0}}" />
+                                                <TextBlock Text="{Binding Id,         StringFormat=ID: {0}}" />
+                                                <TextBlock Text="{Binding TileX,      StringFormat=Tile X: {0}}" />
+                                                <TextBlock Text="{Binding TileY,      StringFormat=Tile Y: {0}}" />
+                                                <TextBlock Text="{Binding StarClass,   StringFormat=Star: {0}}" />
+                                                <TextBlock Text="{Binding PlanetCount, StringFormat=Planets: {0}}" />
                                             </StackPanel>
                                         </Ellipse.ToolTip>
                                     </Ellipse>

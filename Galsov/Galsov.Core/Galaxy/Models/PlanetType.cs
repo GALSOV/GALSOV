@@ -1,17 +1,17 @@
-﻿// File: Galsov.Core/Galaxy/Models/PlanetType.cs
-namespace Galsov.Core.Galaxy.Models
+﻿namespace Galsov.Core.Galaxy.Models;
+
+/// <summary>
+/// Basic planet categories.
+/// Design choice: gameplay-centric, not scientific.
+/// </summary>
+public enum PlanetType
 {
-    /// <summary>
-    /// Simple classification for planets.
-    /// This can be expanded as game design evolves.
-    /// </summary>
-    public enum PlanetType
-    {
-        Unknown = 0,
-        Terran,
-        Desert,
-        Ice,
-        GasGiant,
-        Barren
-    }
+    Unknown = 0,
+    Rocky,
+    GasGiant,
+    Ice,
+    Desert,
+    Ocean,
+    Barren,
+    AsteroidBelt
 }

@@ -1,12 +1,13 @@
 ﻿// File: Galsov.Core/Galaxy/Generation/GalaxyGenerator.cs
-using System;
-using System.Collections.Generic;
 using Galsov.Core.Common.Random;
 using Galsov.Core.Galaxy.Interfaces;
-using StarSystemModel = Galsov.Core.Galaxy.Models.StarSystem;
-using GalaxyModel = Galsov.Core.Galaxy.Models.Galaxy;
-using GalaxyGeneratorOptions = Galsov.Core.Galaxy.Models.GalaxyGeneratorOptions;
+using Galsov.Core.Galaxy.Models;
+using System;
+using System.Collections.Generic;
 using GalaxyDistributionPattern = Galsov.Core.Galaxy.Models.GalaxyDistributionPattern;
+using GalaxyGeneratorOptions = Galsov.Core.Galaxy.Models.GalaxyGeneratorOptions;
+using GalaxyModel = Galsov.Core.Galaxy.Models.Galaxy;
+using StarSystemModel = Galsov.Core.Galaxy.Models.StarSystem;
 
 namespace Galsov.Core.Galaxy.Generation
 {
@@ -154,19 +155,142 @@ namespace Galsov.Core.Galaxy.Generation
                         "The requested StarSystemCount, MinSystemSpacing, and pattern may be too dense for the map size.");
                 }
 
+                var starClass = SampleStarClass(rng);
+                var planets = GeneratePlanetsForSystem(i + 1, rng, options.PlanetGeneration);
+
                 var system = new StarSystemModel
                 {
                     Id = i + 1,
                     Name = $"SYS-{i + 1:D4}",
                     X = x,
-                    Y = y
-                    // Planets list stays empty for now; later steps will populate it.
+                    Y = y,
+                    StarClass = starClass,
+                    Planets = planets
                 };
 
                 galaxy.StarSystems.Add(system);
+
             }
 
             return galaxy;
+
+
+            StarClass SampleStarClass(XorShift64Star rng)
+            {
+                var roll = rng.NextDouble();
+
+                // Design choice: not physically accurate, tuned for gameplay variety.
+                if (roll < 0.02) return StarClass.BlackHole;
+                if (roll < 0.05) return StarClass.Neutron;
+                if (roll < 0.15) return StarClass.BlueGiant;
+                if (roll < 0.30) return StarClass.White;
+                if (roll < 0.55) return StarClass.Yellow;
+                if (roll < 0.75) return StarClass.Orange;
+                if (roll < 0.90) return StarClass.Green;
+
+                return StarClass.RedDwarf;
+            }
+
+            List<Planet> GeneratePlanetsForSystem(
+                int systemId,
+                XorShift64Star rng,
+                PlanetGenerationOptions options)
+            {
+                // No planets possible at all.
+                if (options.MaxPlanetsPerSystem <= 0)
+                    return new List<Planet>();
+
+                // Randomly decide to make this system empty.
+                if (rng.NextDouble() < options.EmptySystemProbability)
+                    return new List<Planet>();
+
+                int min = Math.Max(0, options.MinPlanetsPerSystem);
+                int max = Math.Max(min, options.MaxPlanetsPerSystem);
+
+                // maxExclusive → add +1 to make it inclusive.
+                int planetCount = rng.NextInt(min, max + 1);
+
+                if (planetCount == 0)
+                    return new List<Planet>();
+
+                var planets = new List<Planet>(planetCount);
+
+                for (int i = 0; i < planetCount; i++)
+                {
+                    int orbitIndex = i; // 0-based to match your current renderer.
+
+                    var type = SamplePlanetType(rng, options);
+                    double size = SamplePlanetSize(rng, type);
+                    bool habitable = IsHabitable(type);
+
+                    var planet = new Planet
+                    {
+                        // Design choice: planet Id is 1..N within the system.
+                        Id = i + 1,
+                        Type = type,
+                        OrbitIndex = orbitIndex,
+                        SizeEarthRadii = size,
+                        IsHabitable = habitable
+                    };
+
+                    planets.Add(planet);
+                }
+
+                return planets;
+            }
+
+            PlanetType SamplePlanetType(XorShift64Star rng, PlanetGenerationOptions options)
+            {
+                double roll = rng.NextDouble();
+
+                // Small chance to be an asteroid belt.
+                if (roll < 0.05)
+                    return PlanetType.AsteroidBelt;
+
+                // "Habitable-like" slice: scaled by HabitableWorldWeight
+                double habitableSlice = 0.10 * options.HabitableWorldWeight;
+                if (roll < 0.05 + habitableSlice)
+                {
+                    // Split between rocky & ocean.
+                    return rng.NextDouble() < 0.5 ? PlanetType.Rocky : PlanetType.Ocean;
+                }
+
+                // Gas/ice giants slice, scaled by GasGiantWeight.
+                double gasSlice = 0.20 * options.GasGiantWeight;
+                if (roll < 0.05 + habitableSlice + gasSlice)
+                {
+                    return rng.NextDouble() < 0.7 ? PlanetType.GasGiant : PlanetType.Ice;
+                }
+
+                // Tail: barren / desert / rocky.
+                double tailRoll = rng.NextDouble();
+                if (tailRoll < 0.4) return PlanetType.Barren;
+                if (tailRoll < 0.7) return PlanetType.Desert;
+                return PlanetType.Rocky;
+            }
+
+            double SamplePlanetSize(XorShift64Star rng, PlanetType type)
+            {
+                double roll = rng.NextDouble();
+
+                // Very rough design choice – not realistic, just flavour.
+                return type switch
+                {
+                    PlanetType.GasGiant => 5.0 + roll * 8.0,  // 5–13 Earth radii
+                    PlanetType.Ice => 3.0 + roll * 4.0,  // 3–7
+                    PlanetType.AsteroidBelt => 0.1 + roll * 0.3,  // 0.1–0.4
+                    _ => 0.5 + roll * 2.0   // 0.5–2.5
+                };
+            }
+
+            bool IsHabitable(PlanetType type)
+            {
+                // Game rule: only some classes are colonisable.
+                return type == PlanetType.Rocky
+                    || type == PlanetType.Ocean
+                    || type == PlanetType.Desert;
+            }
+
 
             // ---- Local helper functions ----
 
