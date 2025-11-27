@@ -22,5 +22,15 @@ namespace Galsov.UI
             InitializeComponent();
             DataContext = new DebugGalaxyViewModel();
         }
+
+        private void StarEllipse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (DataContext is DebugGalaxyViewModel vm &&
+                sender is FrameworkElement fe &&
+                fe.DataContext is StarSystemPointViewModel starVm)
+            {
+                vm.SelectedStarPoint = starVm;
+            }
+        }
     }
 }

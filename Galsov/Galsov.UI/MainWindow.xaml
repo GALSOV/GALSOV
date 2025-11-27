@@ -6,6 +6,23 @@
         xmlns:local="clr-namespace:Galsov.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="StarEllipseStyle" TargetType="Ellipse">
+            <Setter Property="Width" Value="4" />
+            <Setter Property="Height" Value="4" />
+            <Setter Property="Fill" Value="White" />
+            <Setter Property="StrokeThickness" Value="0" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected}"
+                    Value="True">
+                    <Setter Property="Stroke" Value="Yellow" />
+                    <Setter Property="StrokeThickness" Value="1.5" />
+                    <Setter Property="Width" Value="6" />
+                    <Setter Property="Height" Value="6" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <!-- Row 0: Error message bar -->
@@ -32,6 +49,8 @@
                 <ColumnDefinition Width="300" />
                 <!-- Galaxy canvas -->
                 <ColumnDefinition Width="*" />
+                <!-- Selected system details -->
+                <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
 
             <!-- Options panel -->
@@ -150,9 +169,8 @@
                             <!-- Visual for each star system -->
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Ellipse Width="4"
-                                            Height="4"
-                                            Fill="White">
+                                    <Ellipse Style="{StaticResource StarEllipseStyle}"
+                                             MouseLeftButtonDown="StarEllipse_MouseLeftButtonDown">
                                         <Ellipse.ToolTip>
                                             <StackPanel>
                                                 <TextBlock Text="{Binding Id,         StringFormat=ID: {0}}" />
@@ -166,6 +184,63 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <!-- Selected system details panel -->
+            <Border Grid.Column="2"
+                    Margin="8"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    Background="#101010">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Text="Selected System"
+                               Foreground="White"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               Margin="4" />
+
+                    <ScrollViewer Grid.Row="1"
+                                  Margin="4"
+                                  VerticalScrollBarVisibility="Auto">
+                        <!-- Bind the whole panel to SelectedSystem -->
+                        <StackPanel DataContext="{Binding SelectedSystem}">
+                            <TextBlock Text="{Binding Id, StringFormat=ID: {0}}"
+                                       Foreground="White" />
+                            <TextBlock Text="{Binding Name, StringFormat=Name: {0}}"
+                                       Foreground="White" />
+                            <TextBlock Text="{Binding StarClass, StringFormat=Star: {0}}"
+                                       Foreground="White" />
+                            <TextBlock Text="{Binding Planets.Count, StringFormat=Planets: {0}}"
+                                       Foreground="White"
+                                       Margin="0,0,0,8" />
+
+                            <ItemsControl ItemsSource="{Binding Planets}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical" Margin="0,0,0,4">
+                                            <TextBlock Text="{Binding Name}"
+                                                       Foreground="White"
+                                                       FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Type}"
+                                                       Foreground="LightGray" />
+                                            <TextBlock Text="{Binding OrbitIndex, StringFormat=Orbit: {0}}"
+                                                       Foreground="Gray" />
+                                            <TextBlock Text="{Binding SizeEarthRadii, StringFormat=Size (R⊕): {0:F1}}"
+                                                       Foreground="Gray" />
+                                            <TextBlock Text="{Binding IsHabitable, StringFormat=Habitable: {0}}"
+                                                       Foreground="Gray" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </Border>

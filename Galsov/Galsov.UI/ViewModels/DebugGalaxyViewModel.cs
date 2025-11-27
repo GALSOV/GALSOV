@@ -6,8 +6,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using System.Windows.Shapes;
 
 #nullable enable
 
@@ -24,7 +26,10 @@ namespace Galsov.UI.ViewModels
         private int _edgeMargin = 0;
         private int _minSystemSpacing = 0;
         private double _scale = 6.0;
-        private StarSystemPointViewModel? _selectedSystem;
+
+        private Galaxy? _galaxy;
+        private StarSystemPointViewModel? _selectedStarPoint;
+        private StarSystem? _selectedSystem;
 
         public DebugGalaxyViewModel()
         {
@@ -104,11 +109,31 @@ namespace Galsov.UI.ViewModels
         // ---- generated stars (for display) ----
 
         public ObservableCollection<StarSystemPointViewModel> StarSystems { get; }
-        // Currently selected star system
-        public StarSystemPointViewModel? SelectedSystem
+
+        public Galaxy? Galaxy
+        {
+            get => _galaxy;
+            private set => SetField(ref _galaxy, value);
+        }
+
+        // The point we clicked on the canvas
+        public StarSystemPointViewModel? SelectedStarPoint
+        {
+            get => _selectedStarPoint;
+            set
+            {
+                if (SetField(ref _selectedStarPoint, value))
+                {
+                    UpdateSelectionFromStarPoint(value);
+                }
+            }
+        }
+
+        // The underlying core StarSystem used for the detail panel      <<-- NEW LINE
+        public StarSystem? SelectedSystem
         {
             get => _selectedSystem;
-            set => SetField(ref _selectedSystem, value);
+            private set => SetField(ref _selectedSystem, value);
         }
 
         // ---- commands ----
@@ -133,6 +158,32 @@ namespace Galsov.UI.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
+        // ---- selection logic ----
+
+        private void UpdateSelectionFromStarPoint(StarSystemPointViewModel? starPoint)
+        {
+            // Clear selection highlight on all star points
+            foreach (var s in StarSystems)
+            {
+                s.IsSelected = false;
+            }
+
+            if (starPoint == null || _galaxy == null)
+            {
+                SelectedSystem = null;
+                return;
+            }
+
+            // Mark this star as selected
+            starPoint.IsSelected = true;
+
+            // Look up the corresponding core StarSystem
+            var system = _galaxy.StarSystems
+                .FirstOrDefault(s => s.Id == starPoint.Id);
+
+            SelectedSystem = system;
+        }
+
 
         // ---- generation logic (will fill next) ----
 
@@ -161,7 +212,8 @@ namespace Galsov.UI.ViewModels
 
                     // Keep the same debug info
                     StarClass = system.StarClass,
-                    PlanetCount = system.PlanetCount
+                    PlanetCount = system.PlanetCount,
+                    IsSelected = system.IsSelected
                 });
             }
         }
@@ -184,14 +236,18 @@ namespace Galsov.UI.ViewModels
                     MinSystemSpacing = MinSystemSpacing
                 };
 
+                SelectedStarPoint = null;
+                SelectedSystem = null;
+
                 // 2. Create the generator
                 var generator = new GalaxyGenerator();
 
                 // 3. Generate the galaxy
                 var galaxy = generator.Generate(options);
-
-                // 4. Convert star systems to display points (pixels)
-                StarSystems.Clear();
+                Galaxy = galaxy;
+        
+        // 4. Convert star systems to display points (pixels)
+        StarSystems.Clear();
 
                 // Use the current Scale value to determine pixels per tile.
                 var scale = Scale;
@@ -206,8 +262,8 @@ namespace Galsov.UI.ViewModels
                         X = system.X * scale,
                         Y = system.Y * scale,
                         StarClass = system.StarClass,
-                        PlanetCount = system.Planets?.Count ?? 0,
-                        Planets = system.Planets ?? new List<Planet>()
+                        PlanetCount = system.Planets?.Count ?? 0
+                        // Planets removed – we now read them from Galaxy/StarSystem   <<-- NEW LINE
                     });
                 }
             }
@@ -223,7 +279,7 @@ namespace Galsov.UI.ViewModels
     }
 
     // Simple display model for the canvas
-    public sealed class StarSystemPointViewModel
+    public sealed class StarSystemPointViewModel : INotifyPropertyChanged
     {
         public int Id { get; init; }
 
@@ -235,11 +291,30 @@ namespace Galsov.UI.ViewModels
         public double X { get; init; }
         public double Y { get; init; }
 
-        // New: star + planet info for debug/tooltip
+        // Star info + planet count for debug/tooltip
         public StarClass StarClass { get; init; }
         public int PlanetCount { get; init; }
-        public IReadOnlyList<Planet> Planets { get; init; } = Array.Empty<Planet>();
-}
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
 
     // Minimal ICommand implementation (standard MVVM pattern)
     public sealed class RelayCommand : ICommand
