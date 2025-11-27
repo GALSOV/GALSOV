@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Galsov.Core.Galaxy.Generation;
+using Galsov.Core.Galaxy.Models;   // StarSystem lives here
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Galsov.Core.Galaxy.Models;   // StarSystem lives here
-using Galsov.Core.Galaxy.Generation;
-using System.Linq;
 
 #nullable enable
 
@@ -22,6 +24,7 @@ namespace Galsov.UI.ViewModels
         private int _edgeMargin = 0;
         private int _minSystemSpacing = 0;
         private double _scale = 6.0;
+        private StarSystemPointViewModel? _selectedSystem;
 
         public DebugGalaxyViewModel()
         {
@@ -101,6 +104,12 @@ namespace Galsov.UI.ViewModels
         // ---- generated stars (for display) ----
 
         public ObservableCollection<StarSystemPointViewModel> StarSystems { get; }
+        // Currently selected star system
+        public StarSystemPointViewModel? SelectedSystem
+        {
+            get => _selectedSystem;
+            set => SetField(ref _selectedSystem, value);
+        }
 
         // ---- commands ----
 
@@ -197,7 +206,8 @@ namespace Galsov.UI.ViewModels
                         X = system.X * scale,
                         Y = system.Y * scale,
                         StarClass = system.StarClass,
-                        PlanetCount = system.Planets?.Count ?? 0
+                        PlanetCount = system.Planets?.Count ?? 0,
+                        Planets = system.Planets ?? new List<Planet>()
                     });
                 }
             }
@@ -228,7 +238,8 @@ namespace Galsov.UI.ViewModels
         // New: star + planet info for debug/tooltip
         public StarClass StarClass { get; init; }
         public int PlanetCount { get; init; }
-    }
+        public IReadOnlyList<Planet> Planets { get; init; } = Array.Empty<Planet>();
+}
 
     // Minimal ICommand implementation (standard MVVM pattern)
     public sealed class RelayCommand : ICommand
