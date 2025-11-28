@@ -10,6 +10,7 @@ using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using Galsov.Core.Sessions;
 
 #nullable enable
 
@@ -26,6 +27,9 @@ namespace Galsov.UI.ViewModels
         private int _edgeMargin = 0;
         private int _minSystemSpacing = 0;
         private double _scale = 6.0;
+        
+        private GameSession? _gameSession;
+        private int _turnNumber;
 
         private Galaxy? _galaxy;
         private StarSystemPointViewModel? _selectedStarPoint;
@@ -34,6 +38,12 @@ namespace Galsov.UI.ViewModels
         public DebugGalaxyViewModel()
         {
             GenerateCommand = new RelayCommand(_ => GenerateGalaxy());
+
+            // Only valid once we actually have a GameSession.
+            NextTurnCommand = new RelayCommand(
+                _ => AdvanceTurn(),                      // <<-- NEW
+                _ => GameSession != null);               // <<-- NEW
+
             StarSystems = new ObservableCollection<StarSystemPointViewModel>();
         }
 
@@ -92,7 +102,17 @@ namespace Galsov.UI.ViewModels
                 }
             }
         }
+        public GameSession? GameSession
+        {
+            get => _gameSession;
+            private set => SetField(ref _gameSession, value);
+        }
 
+        public int TurnNumber
+        {
+            get => _turnNumber;
+            private set => SetField(ref _turnNumber, value);
+        }
 
         private string? _errorMessage;
 
@@ -139,6 +159,7 @@ namespace Galsov.UI.ViewModels
         // ---- commands ----
 
         public ICommand GenerateCommand { get; }
+        public ICommand NextTurnCommand { get; }
 
         // ---- INotifyPropertyChanged boilerplate ----
 
@@ -236,35 +257,29 @@ namespace Galsov.UI.ViewModels
                     MinSystemSpacing = MinSystemSpacing
                 };
 
-                SelectedStarPoint = null;
-                SelectedSystem = null;
+                // 2. Create a new game session using the factory (GameSession is now the root).
+                var session = GameSessionFactory.Create(options);   // <<-- NEW
 
-                // 2. Create the generator
-                var generator = new GalaxyGenerator();
+                GameSession = session;                              // <<-- NEW
+                TurnNumber = session.TurnNumber;                    // <<-- NEW
 
-                // 3. Generate the galaxy
-                var galaxy = generator.Generate(options);
-                Galaxy = galaxy;
-        
-        // 4. Convert star systems to display points (pixels)
-        StarSystems.Clear();
+                // 3. Convert star systems from the session's galaxy into display points.
+                StarSystems.Clear();
 
-                // Use the current Scale value to determine pixels per tile.
+                var galaxy = session.Galaxy;                        // <<-- NEW
                 var scale = Scale;
 
                 foreach (var system in galaxy.StarSystems)
                 {
-                    StarSystems.Add(new StarSystemPointViewModel
-                    {
-                        Id = system.Id,
-                        TileX = system.X,
-                        TileY = system.Y,
-                        X = system.X * scale,
-                        Y = system.Y * scale,
-                        StarClass = system.StarClass,
-                        PlanetCount = system.Planets?.Count ?? 0
-                        // Planets removed – we now read them from Galaxy/StarSystem   <<-- NEW LINE
-                    });
+                    StarSystems.Add(
+                        new StarSystemPointViewModel
+                        {
+                            Id = system.Id,
+                            TileX = system.X,
+                            TileY = system.Y,
+                            X = system.X * scale,
+                            Y = system.Y * scale
+                        });
                 }
             }
             catch (Exception ex)
@@ -274,6 +289,26 @@ namespace Galsov.UI.ViewModels
 
                 // Clear stars so we don't show stale data
                 StarSystems.Clear();
+                GameSession = null;         // <<-- NEW
+                TurnNumber = 0;             // <<-- NEW
+            }
+        }
+        private void AdvanceTurn()
+        {
+            if (GameSession is null)
+            {
+                ErrorMessage = "No game session yet. Generate a galaxy first.";
+                return;
+            }
+
+            try
+            {
+                GameSession.AdvanceTurn();
+                TurnNumber = GameSession.TurnNumber;
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
             }
         }
     }

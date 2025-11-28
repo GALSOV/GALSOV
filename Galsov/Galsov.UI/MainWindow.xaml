@@ -107,13 +107,23 @@
                         IsSnapToTickEnabled="True"
                         Value="{Binding Scale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         Margin="0,0,0,4" />
-                                <TextBlock Text="{Binding Scale, StringFormat=Scale: {0:F1}}"
+                <TextBlock Text="{Binding Scale, StringFormat=Scale: {0:F1}}"
                            Margin="0,0,0,8" />
+
+                <!-- Turn info -->
+                <TextBlock Text="{Binding TurnNumber, StringFormat=Turn: {0}}"
+                           Margin="0,8,0,0" />
 
                 <!-- Generate button -->
                 <Button Content="Generate"
                         Command="{Binding GenerateCommand}"
                         Margin="0,12,0,0"
+                        Height="32" />
+
+                <!-- Next Turn button -->
+                <Button Content="Next Turn"
+                        Command="{Binding NextTurnCommand}"
+                        Margin="0,4,0,0"
                         Height="32" />
             </StackPanel>
 
