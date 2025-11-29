@@ -80,5 +80,12 @@ namespace Galsov.Core.Sessions
 
             return knowledge;
         }
+
+        // NEW: read-only enumeration of all system knowledge, for UI & debug.
+        public IEnumerable<SystemKnowledge> GetAllSystemKnowledge()
+        {
+            return _systems.Values;
+        }
     }
+
 }

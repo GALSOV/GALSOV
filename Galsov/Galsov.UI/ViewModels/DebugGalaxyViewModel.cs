@@ -16,6 +16,14 @@ using Galsov.Core.Sessions;
 
 namespace Galsov.UI.ViewModels
 {
+    // NEW: simple DTO for showing intel in the debug UI
+    public sealed class SystemIntelSummary
+    {
+        public int StarSystemId { get; init; }
+        public string DisplayName { get; init; } = string.Empty;
+        public KnowledgeState KnowledgeState { get; init; }
+        public int DetectionLevel { get; init; }
+    }
     public sealed class DebugGalaxyViewModel : INotifyPropertyChanged
     {
         // ---- backing fields ----
@@ -30,6 +38,9 @@ namespace Galsov.UI.ViewModels
         
         private GameSession? _gameSession;
         private int _turnNumber;
+
+        private readonly ObservableCollection<SystemIntelSummary> _playerIntel
+            = new ObservableCollection<SystemIntelSummary>();
 
         private Galaxy? _galaxy;
         private StarSystemPointViewModel? _selectedStarPoint;
@@ -114,6 +125,8 @@ namespace Galsov.UI.ViewModels
             private set => SetField(ref _turnNumber, value);
         }
 
+        public ObservableCollection<SystemIntelSummary> PlayerIntel => _playerIntel;
+
         private string? _errorMessage;
 
         public string? ErrorMessage
@@ -179,6 +192,40 @@ namespace Galsov.UI.ViewModels
             OnPropertyChanged(propertyName);
             return true;
         }
+
+        private void RefreshPlayerIntel()
+        {
+            _playerIntel.Clear();
+
+            if (GameSession is null)
+            {
+                return;
+            }
+
+            var galaxy = GameSession.Galaxy;
+            var empire = GameSession.PlayerEmpire;
+
+            foreach (var knowledge in empire.Knowledge
+                         .GetAllSystemKnowledge()
+                         .OrderBy(k => k.StarSystemId))
+            {
+                var starSystem = galaxy.StarSystems
+                    .FirstOrDefault(s => s.Id == knowledge.StarSystemId);
+
+                var name = starSystem != null
+                    ? $"{starSystem.Id} – {starSystem.Name}"
+                    : $"System {knowledge.StarSystemId}";
+
+                _playerIntel.Add(new SystemIntelSummary
+                {
+                    StarSystemId = knowledge.StarSystemId,
+                    DisplayName = name,
+                    KnowledgeState = knowledge.KnowledgeState,
+                    DetectionLevel = knowledge.DetectionLevel
+                });
+            }
+        }
+
         // ---- selection logic ----
 
         private void UpdateSelectionFromStarPoint(StarSystemPointViewModel? starPoint)
@@ -258,15 +305,18 @@ namespace Galsov.UI.ViewModels
                 };
 
                 // 2. Create a new game session using the factory (GameSession is now the root).
-                var session = GameSessionFactory.Create(options);   // <<-- NEW
+                var session = GameSessionFactory.Create(options);
 
-                GameSession = session;                              // <<-- NEW
-                TurnNumber = session.TurnNumber;                    // <<-- NEW
+                GameSession = session;
+                TurnNumber = session.TurnNumber;
+
+                // Keep the VM's Galaxy property in sync with the session's galaxy
+                Galaxy = session.Galaxy;
 
                 // 3. Convert star systems from the session's galaxy into display points.
                 StarSystems.Clear();
 
-                var galaxy = session.Galaxy;                        // <<-- NEW
+                var galaxy = session.Galaxy;
                 var scale = Scale;
 
                 foreach (var system in galaxy.StarSystems)
@@ -281,6 +331,9 @@ namespace Galsov.UI.ViewModels
                             Y = system.Y * scale
                         });
                 }
+
+                // Build the initial intel view for the player
+                RefreshPlayerIntel();
             }
             catch (Exception ex)
             {
@@ -289,8 +342,10 @@ namespace Galsov.UI.ViewModels
 
                 // Clear stars so we don't show stale data
                 StarSystems.Clear();
-                GameSession = null;         // <<-- NEW
-                TurnNumber = 0;             // <<-- NEW
+                GameSession = null;
+                Galaxy = null;
+                TurnNumber = 0;
+                _playerIntel.Clear();
             }
         }
         private void AdvanceTurn()
@@ -305,6 +360,9 @@ namespace Galsov.UI.ViewModels
             {
                 GameSession.AdvanceTurn();
                 TurnNumber = GameSession.TurnNumber;
+
+                // Rebuild the intel view after each turn
+                RefreshPlayerIntel();
             }
             catch (Exception ex)
             {

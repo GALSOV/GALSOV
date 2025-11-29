@@ -69,10 +69,8 @@ namespace Galsov.Core.Sessions
             // - Consume supplies based on fleet activity.
             // - Apply penalties for out-of-supply fleets.
 
-            // TODO: EXPLORATION & INTEL
-            // - Update EmpireKnowledgeMap based on sensors and events.
-            // - Compute presence bands and detection levels.
-            // - Append INTEL UPDATE entries to the log.
+            // EXPLORATION & INTEL (v0.1: simple spreading)
+            ApplyExplorationAndIntel(PlayerEmpire);
 
             // TODO: ECONOMY
             // - Tick colony outputs to generate Credits/Production/Science/Supplies.
@@ -83,6 +81,61 @@ namespace Galsov.Core.Sessions
             // TODO: CHARACTERS
             // - Update Admiral XP, traits, and statuses.
         }
+
+        private void ApplyExplorationAndIntel(Empire empire)
+        {
+            var galaxy = Galaxy;
+            if (galaxy.StarSystems.Count == 0)
+            {
+                return;
+            }
+
+            // We start "spreading" from turn 2 onwards.
+            var index = TurnNumber - 2;
+            if (index < 0)
+            {
+                return;
+            }
+
+            index = index % galaxy.StarSystems.Count;
+
+            var targetSystem = galaxy.StarSystems[index];
+
+            // Guarantee a knowledge entry exists for this system.
+            var knowledge = empire.Knowledge.GetOrCreate(targetSystem.Id);
+
+            var oldState = knowledge.KnowledgeState;
+
+            switch (knowledge.KnowledgeState)
+            {
+                case KnowledgeState.Unknown:
+                    knowledge.KnowledgeState = KnowledgeState.Detected;
+                    knowledge.PresenceBand = PresenceBand.Trace;
+                    knowledge.DetectionLevel = Math.Max(knowledge.DetectionLevel, 1);
+                    break;
+
+                case KnowledgeState.Detected:
+                    knowledge.KnowledgeState = KnowledgeState.Surveyed;
+                    knowledge.PresenceBand = PresenceBand.Minor;
+                    knowledge.DetectionLevel = Math.Max(knowledge.DetectionLevel, 3);
+                    break;
+
+                case KnowledgeState.Surveyed:
+                    // Already fully explored – no change for now.
+                    break;
+            }
+
+            knowledge.LastUpdatedTurn = TurnNumber;
+
+            if (knowledge.KnowledgeState != oldState)
+            {
+                _turnLog.Add(TurnLogEntry.Create(
+                    TurnNumber,
+                    "INTEL",
+                    $"Exploration updated system {targetSystem.Id} from {oldState} to {knowledge.KnowledgeState}."));
+            }
+        }
+
 
         /// <summary>
         /// Very lightweight structured log record. This will likely
